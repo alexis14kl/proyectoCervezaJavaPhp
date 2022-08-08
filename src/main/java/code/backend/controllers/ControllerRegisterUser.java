@@ -23,6 +23,7 @@ public class ControllerRegisterUser {
 		try {
 			implementsServiceUser.ObtenerEmail(email);
 		}catch(Exception e) {
+			System.out.println(e.getLocalizedMessage().toString());
 			return e.getLocalizedMessage().toString();
 		}
 		return "error";
