@@ -23,8 +23,7 @@ public class ImplementsServiceUser implements InterfaxServiceUser {
 		}else {
 			List<User>UserObtenido = jpaRepositoryUser.ObtenerEmail(email);
 			if(!UserObtenido.isEmpty()) {
-				String idUserObtenido = String.valueOf(UserObtenido.get(0).getId_User());
-				throw new Exception(idUserObtenido);
+				throw new Exception("yes");
 			}else {
 				throw new Exception("no");
 			}
