@@ -45,4 +45,14 @@ public class ImplementsServiceUser implements InterfaxServiceUser {
 		List<DtoUserConsultData>profile = jpaRepositoryUser.ProfileUser(idProfile);
 		throw new Exception(profile.get(0).getPerfil_Users().toString());
 	}
+
+	@Override
+	public List<User> ObtenerProfilexEmail(String email) throws Exception {
+		List<User>profilexEmail = jpaRepositoryUser.ObtenerEmail(email);
+		if(!profilexEmail.isEmpty()) {
+			String idUser = String.valueOf(profilexEmail.get(0).getId_User());
+			throw new Exception(idUser);
+		}
+		return null;
+	}
 }

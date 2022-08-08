@@ -10,7 +10,6 @@ import org.springframework.web.bind.annotation.RestController;
 
 import code.backend.implementacionesservices.ImplementsServiceUser;
 import code.backend.models.User;
-
 @RestController
 @CrossOrigin(origins="*")
 public class ControllerRegisterUser {
@@ -23,7 +22,6 @@ public class ControllerRegisterUser {
 		try {
 			implementsServiceUser.ObtenerEmail(email);
 		}catch(Exception e) {
-			System.out.println(e.getLocalizedMessage().toString());
 			return e.getLocalizedMessage().toString();
 		}
 		return "error";
@@ -61,6 +59,18 @@ public class ControllerRegisterUser {
 			return e.getLocalizedMessage().toString();
 		}
 		return "hola mundo";
+	}
+	
+	@GetMapping("/obtenerProfileLogin")
+	@ResponseBody
+	public String obtenerIdClienteProfile(String email) {
+		try {
+			implementsServiceUser.ObtenerProfilexEmail(email);
+		} catch (Exception e) {
+			System.out.println(e.getLocalizedMessage());
+			return e.getLocalizedMessage().toString();
+		}
+		return null;
 	}
 	
 	
