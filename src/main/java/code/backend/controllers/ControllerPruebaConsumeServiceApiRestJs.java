@@ -16,11 +16,13 @@ public class ControllerPruebaConsumeServiceApiRestJs {
 	
 //	http://localhost:8080/apiRest
 	@CrossOrigin(value = "http://localhost:8080/apiRest")
-	@RequestMapping(value = "/apiRest", consumes="application/json", method = RequestMethod.POST)
+	@RequestMapping(value = "/apiRest",produces="application/json", consumes="application/json", method = RequestMethod.POST)
 	public String dataUserJson(@RequestBody String json) throws Exception {
 		JSONArray jsonArray =new JSONArray(json.toString());
 		JSONObject jsonObject = jsonArray.getJSONObject(0);
 			System.out.println(jsonObject.getString("Name_User"));
+			System.out.println(jsonObject.getString("nacionalidad"));
+			System.out.println("this is the object " + jsonObject);
 	  return null;
 	}
 	
